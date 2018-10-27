@@ -1,0 +1,20 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<script>
+$.getJSON('https://dms-data.stanford.edu/data/manifests/Parker/collection.json', function(data) {
+    var idString = ""
+	for (i in data.manifests){
+		url = data.manifests[i]['@id']
+		id = url.replace('https://dms-data.stanford.edu/data/manifests/Parker/', '').replace('/manifest.json', '')
+		idString += "'" + id + "',\n"
+	}
+	console.log(idString)
+});
+</script>
+
+</body>
+</html>
